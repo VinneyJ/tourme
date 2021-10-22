@@ -14,12 +14,12 @@ def home():
         place = request.form.get('place')
 
         if len(place) < 1:
-            flash('place name is too short!', category='error')
+            flash('place is too short!', category='error')
         else:
-            new_place = Place(data=note, user_id=current_user.id)
+            new_place = Place(data=place, user_id=current_user.id )
             db.session.add(new_place)
             db.session.commit()
-            flash('new place is added!', category='success')
+            flash('place added!', category='success')
 
     return render_template("home.html", user=current_user)
 
@@ -35,3 +35,7 @@ def delete_place():
             db.session.commit()
 
     return jsonify({})
+
+@views.route('/places')
+def showall(): 
+    return render_template("allplaces.html", user=current_user, alluser='all')

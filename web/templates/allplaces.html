@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <h1 align="center">places</h1>
+    <ul class="list-group list-group-flush" id="places">
+      {% for place in alluser.places %}
+      <li class="list-group-item">
+        {{ place.data }} <br>
+      <iframe src="https://www.google.com/maps/place/{{place.data}}/" width="400px" height="300px"></iframe>
+        <button type="button" class="close" onClick="deleteplace({{ place.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+    <form method="POST">
+      <input type="text" name="place" id="place" class="form-control">
+      <br />
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Book this place</button>
+      </div>
+    </form>
+    {% endblock %}
+    
