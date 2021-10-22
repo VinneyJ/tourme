@@ -9,9 +9,9 @@ flask-sqlalchemy
 python main.py
 
 # endpoints
-/
-/login
-/signup
-/places
-/about
-/messages
+/<br>
+/login<br>
+/signup<br>
+/places<br>
+/about<br>
+/messages<br>
