@@ -1,4 +1,21 @@
-{%  extends "base.html" %} {% block title %}Changed {% endblock %}
-
-{% block content %} bddddddddddro
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+        %}
+        <h1 align="center">Place</h1>
+        <ul class="list-group list-group-flush" id="Place">
+          {% for note in user.places %}
+          <li class="list-group-item">
+            {{ Place.data }}
+            <button type="button" class="close" onClick="deletePlace({{ place.id }})">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </li>
+          {% endfor %}
+        </ul>
+        <form method="POST">
+          <input name="note" id="Place" class="form-control">
+          <br />
+          <div align="center">
+            <button type="submit" class="btn btn-primary">Add Place</button>
+          </div>
+        </form>
         {% endblock %}
