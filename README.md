@@ -1,9 +1,9 @@
 # TourMe
 
 # requirnments 
-flask
-flask-login
-flask-sqlalchemy
+flask<br>
+flask-login<br>
+flask-sqlalchemy<br>
 
 # to run 
 python main.py
