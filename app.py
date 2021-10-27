@@ -11,7 +11,7 @@ local_session = Session(bind=engine)
 
 @app.route('/', strict_slashes=False)
 def home():
-    return "<p>Hello, World!</p>"
+    return render_template('home.html', title='home')
 
 
 @app.route("/register/", methods=['GET', 'POST'])
