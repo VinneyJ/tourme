@@ -1,5 +1,6 @@
 # TourMe
-https://imgur.com/a/z319Dsg
+
+<img src="https://imgur.com/a/z319Dsg" width="500">
 
 This is our Portfolio Project, concluding our Foundations Year at Holberton School
 
