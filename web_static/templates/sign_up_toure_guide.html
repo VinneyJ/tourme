@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ventana del navegador -->
+    <title></title>
+    <link rel="icon" type="image/png" href="../static/images/img_t.png?{{ id }}"/>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <!-- bootstrap style -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- css style -->
+    <link rel="stylesheet" href="../static/styles/main.css?{{ id }}"/>
+    <!-- Scrollreveal JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- icon close plogin -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+</head>
+
+<body>
+    <!-- -->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <div class="container">
+            <img src="../static/images/tourme_logo.png" alt="logo" style="width: 170px;">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="firstNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="firstNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/signup/id-worker#developed_dy">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--  -->
+    <section class="mt-5">
+        <div class="container">  
+        
+            <!-- -->
+            <div class="row">
+
+                <!--  -->
+                <div class="col-md-6 mt-4">
+                    <div class="header-content-left">
+                        <img src="../static/images/t9.jpg? id }}" alt="CrediRap_investments" style="width: 75%;">
+                        <p class="text-justify mt-2">
+                            Hi, everybody.
+                          I am Steve, your tour guide for today. We're going to be pulling up to the hotel in just a few minutes. Please sit back and enjoy the view of the ocean on the left hand side of the bus as we enter the city. I ask that you remain in your seats until we have come to a complete stop. Our agent Nick will be meeting us at the bus to help you with your bags. Please double check to make sure your bag has been taken off the bus. On behalf of Narva Travel Tours, have a wonderful vacation in Narga and I hope to see you tomorrow at the information session.
+                        </p>
+                    </div>
+                </div>
+
+                <!--  -->
+                <div class="col mt-4 content-right">
+                    <h1 class="text-center">Sign Up</h1>
+                    <form action="" method="POST" class="card">
+                        <div class="card-body bg-light">
+                            <div class="form group">
+                                <input type="text" placeholder="First Name" class="form-control" name="fname">
+                                <input type="text" placeholder="Last Name" class="form-control mt-1" name="lname">
+                                <div class="input-group">
+                                    <select name="tipo-identificacion" id="tipo_identificacion" class="form-control mt-1 col-md-6">
+                                        <option value="">type ID</option>
+                                        <option value="CC">Identification ID </option>
+                                        <option value="CE">Driving licence </option>
+                                        <option value="PA">Pasaporte</option>
+                                    </select>
+                                    <input type="text" placeholder="Number ID" class="form-control mt-1 col-md-6" name="numberID">
+                                </div>
+                                <div class="input-group">
+                                    <label class="form-control mt-1 col-md-3">birthday</label>
+                                    <input type="date" class="form-control mt-1 col-md-9" name="date">
+                                </div>
+                                <input type="text" placeholder="Username" class="form-control mt-1" name="username">
+                                <input type="email" placeholder="Email" class="form-control mt-1" name="email">
+                                <div class="input-group">
+                                    <input id="txtPassword" type="password" placeholder="Enter Password" Class="form-control mt-1 col-md-11" name="password">
+                                    <a id="show_password" class="btn btn-primary form-control mt-1 col-md-1" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></a>
+                                </div>
+                                <div class="form-group form-check mt-3 was-validated">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" name="remember" required>I accept terms and conditions.
+                                      <div class="valid-feedback">Valid.</div>
+                                      <div class="invalid-feedback">Check this checkbox to continue.</div>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="margin-left: 40%;">Submit</button>
+                            </div>
+                        </div>
+                    </form><br>
+                </div>    
+            </div> <!-- -->
+
+        </div> <!--  -->
+    </section> <!--  -->
+    
+    <footer> <!--  -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../static/images/img_t.png?{{ id }}" class="float-right mt-4" alt="logo_rappi" style="width: 30%;">
+                </div>
+                <div class="col">
+                    <p class="text-center mt-4 float-left">
+                        ToutMe  is a collaborative project by <br>
+                        <a href="https://www.holbertonschool.com/co" target="blank">Holberton School</a> & <a href="https://www.rappi.com.co/" target="blank">TourMe</a><br>
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="float-right">
+                        <p> 
+                            <h5 class="my-3 flow-contact" id="developed_dy">Developed by</h5>
+                            <a href="https://twitter.com/ccali_k" target="blank">Girum</a><br>
+                            <a href="https://twitter.com/lh1008" target="blank">Fkadeal</a><br>
+                            <a href="https://twitter.com/JhonatanLegarda" target="blank">Vincent</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="../static/images/logo_holbeton.png?{{ id }}" class="float-left mt-4 my-3" alt="logo_holberton" style="width: 30%;">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- -->
+    <!-- -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+    /* */
+    function validar_tipo_id() {
+        var tipo_identificacion = $('#tipo_identificacion').val();
+        if (tipo_identificacion == 0 || tipo_identificacion == "") {
+            alert("obligatorio seleccionar una opciòn");
+            return false
+        }
+        return true
+    }
+
+    /* animacion de js para sign up */
+    window.sr = ScrollReveal();
+            sr.reveal('.content-right', {
+            duration: 2000,
+            origin: 'right',
+            distance: '300px',
+            });
+
+    /* mostrar contraseña */            
+    function mostrarPassword(){
+            var cambio = document.getElementById("txtPassword");
+		    if(cambio.type == "password"){
+			    cambio.type = "text";
+			    $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+		    }else{
+			    cambio.type = "password";
+			    $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+		    }
+        } 
+	    $(document).ready(function () {
+	    
+	    $('#ShowPassword').click(function () {
+		    $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+	    });
+    });
+
+    </script>
+
+</body>
+</html>

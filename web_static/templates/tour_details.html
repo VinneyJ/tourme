@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ventana del navegador -->
+    <title>ToureMe MVP specification</title>
+    <link rel="icon" type="image/png" href="../static/images/img_t.png?{{ id }}"/>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <!-- bootstrap style -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- css style -->
+    <link rel="stylesheet" href="../static/styles/main.css?{{ id }}"/>
+    <!-- icon close para editar perfil -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+</head>
+
+<body>
+    <!--  -->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <div class="container">
+            <img src="../static/images/tourme_logo.png" alt="logo" style="width: 170px;">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="firstNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="firstNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/home">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- -->
+    <section class="mt-5">
+        <div class="container">  
+        
+            <!-- d -->
+            <div class="row">
+
+                <!--  -->
+                <div class="col-md-4 mt-4">
+                    <div>
+                        <div class="b_status">
+                            <button type="button" onclick="location.href='/profile-investor/<investor_id>'" class="btn-light btn-lg btn_css">Status</button><br>
+                        </div>
+                        <div class="b_profile">
+                            <button type="button" onclick="location.href='/edit-profile'" class="btn-light btn-lg btn_css">Edit profile</button><br>
+                        </div>
+                        <div class="b_investment">
+                            <button type="button" onclick="location.href='/investment'" class="btn-light btn-lg btn_css">Toure</button><br>
+                        </div>
+                        <div class="b_bank">
+                            <button type="button" onclick="location.href='/bank-details'" class="btn-light btn-lg btn_css">Add Toure details</button><br>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  -->
+                <div class="col-md-8 mt-4">
+                    <div class="header-content-right">
+                        <h1 style="text-align: center;">Add toure details</h1>
+                        <form action="" class="card">
+                            <div class="card-body bg-light">
+                                <div class="form group">
+                                    <input type="text" placeholder="Bank Name" class="form-control mt-4">
+                                    <input type="text" placeholder="Type Account" class="form-control mt-4">
+                                    <input type="text" placeholder="Account Number" class="form-control mt-4">
+                                    <button type="submit" class="btn-light btn-lg btn_css" style="margin-top: 30px; margin-left: 40%;">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div> <!--  -->
+                </div> <!-- -->
+            </div> <!--  -->
+        </div> <!--  -->
+    </section> <!-- -->
+
+    <!--  -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../static/images/img_t.png?{{ id }}" class="float-right mt-4" alt="" style="width: 30%;">
+                </div>
+                <div class="col">
+                    <p class="text-center mt-4 float-left">
+                        TourMe is a collaborative project by <br><a href="https://www.holbertonschool.com/co" target="blank">Holberton School</a> & <a href="" target="blank">TourMe</a><br>
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="float-right">
+                        <p>
+                            <h5 class="my-3" id="developed_dy">Developed by</h5>
+                            <a href="" target="blank">Girum</a><br>
+                            <a href="" target="blank">fkadeal</a><br>
+                            <a href="" target="blank">Vincent</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="../static/images/logo_holbeton.png?{{ id }}" class="float-left mt-4 my-3" alt="logo_holberton" style="width: 30%;">
+                </div>
+            </div> <!-- cierre row -->
+        </div> <!-- Cierre container footer -->
+    </footer>
+
+    <!--funciones y animacion js -->
+    <script>
+    window.sr = ScrollReveal();
+    sr.reveal('.header-content-right', {
+        duration: 2000,
+        origin: 'top',
+        distance: '300px'
+    });
+    </script>
+
+</body>
+</html>

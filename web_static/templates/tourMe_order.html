@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ventana del navegador -->
+    <title>TourMe MVP specification</title>
+    <link rel="icon" type="image/png" href="../static/images/img_t.png?{{ id }}"/>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <!-- bootstrap style -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- css style -->
+    <link rel="stylesheet" href="../static/styles/main.css?{{ id }}"/>
+</head>
+
+<body>
+    <!--  -->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <div class="container">
+            <img src="../static/images/tourme_logo.png" alt="logo" style="width: 170px;">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="firstNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="firstNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/home">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- -->
+    <section class="mt-5">
+        <div class="container">
+            <h1 class="loandetails">TourMe Order</h1>
+            <form action="" class="card loandetails1">
+                <div class="card-body bg-light">
+                    <div class="form group">
+                        <label class="form-control mt-2" for="#">N° Request (3526)</label>
+                        <div class="input-group">
+                            <label class="form-control mt-1 col-md-4">Date Request</label>
+                            <input type="date" class="form-control mt-1 col-md-8" name="date">
+                        </div>
+                        <label for="#" class="form-control mt-2">Interest rate (2%)</label>
+                        <input type="text" class="form-control mt-2" placeholder="Term (Months)">
+                        <div class="input-group">
+                            <label class="form-control mt-1 col-md-4">Date Outlay</label>
+                            <input type="date" class="form-control mt-1 col-md-8" name="date">
+                        </div>
+                        <textarea class="form-control mt-2" id="" placeholder="Description"></textarea>
+                    </div>
+                </div>
+            </form>
+
+            <div>
+                <button type="button" onclick="location.href='#'" class="btn-light btn-lg btn_css" style="margin-left: 40%;">DONE</button>
+                <button type="button" onclick="location.href='/profile-worker'" class="btn-light btn-lg btn_css btn-abrir-popup">CANCEL</button>
+           </div>
+
+        </div> <!--  -->
+    </section> <!-- -->    
+
+    <br><br>
+
+    <footer> <!--  -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../static/images/img_t.png?{{ id }}" class="float-right mt-4" alt="logo_rappi" style="width: 30%;">
+                </div>
+                <div class="col">
+                    <p class="text-center mt-4 float-left">
+                        TourMe is a collaborative project by <br><a href="https://www.holbertonschool.com/co" target="blank">Holberton School</a> & <a href="" target="blank">TourMe</a><br>
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="float-right">
+                        <p>
+                            <h5 class="my-3" id="developed_dy">Developed by</h5>
+                            <a href="" target="blank">Girum</a><br>
+                            <a href="" target="blank">fkadeal</a><br>
+                            <a href="" target="blank">Vincent</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="../static/images/logo_holbeton.png?{{ id }}" class="float-left mt-4 my-3" alt="logo_holberton" style="width: 30%;">
+                </div>  
+            </div>
+        </div>
+    </footer>
+
+    <!-- -->
+    <script>
+    </script>
+
+</body>
+</html>

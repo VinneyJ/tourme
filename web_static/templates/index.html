@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ventana del navegador -->
+    <title>TureMe mvp specification</title>
+    <link rel="icon" type="image/png" href="../static/images/tourme_logo.png id }}"/>
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <!-- bootstrap style -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- css style -->
+    <link rel="stylesheet" href="../static/styles/main.css?{{ id }}">
+    <!-- Scrollreveal JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- icon close para login -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+</head>
+
+<body>
+    <!-- Barra de navegacion fija -->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <div class="container">
+            <img src="../static/images/tourme_logo.png" alt="logo" style="width: 200px;">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="firstNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="firstNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" id="btn-abrir-popup" class="btn-abrir-popup">Sign In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/home#developed_dy">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://mixed-oasis-caterpillar.glitch.me/" target="blank">Landing Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- contenido de la pagina -->
+    <section class="mt-5">
+        <div class="container">  
+        
+            <!-- division de pagina por columnas -->
+            <div class="row">
+
+                <!-- columna izquierda -->
+                <div class="col-md-6 mt-4">
+                    <div class="header-content-left">
+                        <img src="../static/images/The_App.jpg? id }}" alt="CrediRap_investments" style="width: 85%;">
+                        <p class="text-justify mt-2">
+                            This project proposes a Ture Gide application .  A Turist can find a local gide for a specific time and a local Gide can spear his time 
+                            for Giving a local ture to shops, galleries , caffs with in a time to spear 
+                        </p>
+                    </div>
+                </div>
+
+                <!-- columna derecha -->
+                <div id="div1" class="col-md-6 mt-4">
+                    <div class="header-content-right">
+                        <h1>Do you need an account?</h1>
+                        <!-- worker -->
+                        <img src="../static/images/local_Guide.jpg? id }}" alt="an account worker" style="width: 63%;" class="mt-2">
+                        <button type="button" onclick="location.href='/signup/id-worker'" class="btn-light btn-lg mt-1 header-btn btn_css" style="margin-left: 40%;">Local Gide</button><br>
+                        <!-- investor -->
+                        <img src="../static/images/New_in_tawn.jpg? id }}" alt="an acco investment" style="width: 63%;" class="mt-4">
+                        <button type="button" onclick="location.href='/signup/id'" class="btn-light btn-lg mt-1 header-btn btn_css" style="margin-left: 38%;">New in Town</button><br><br>
+                    </div>
+                </div>
+    
+            </div> <!-- cierre div clase row -->
+            
+            <!-- ventana emergente de login -->
+            <div class="overlay" id="overlay">
+                <div class="popup" id="popup">
+                    <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                    <h3>Sign In</h3>
+                    <h4>Welcome!</h4>
+                    <form action="/signin" method="POST">
+                        <div class="contenedor-inputs">
+                            <input type="email" placeholder="Email" name="email">
+                            <input type="password" placeholder="Password" name="password">
+                        </div>
+                        <input type="submit" class="btn-submit" value="DONE">
+                    </form>
+                </div>
+            </div>
+        </div> <!-- cierra div clase container -->
+    </section> <!-- cierre de setion "cuerpo" de la pagina -->
+    
+    <footer> <!-- footer (pie de  pagina) -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="/static/images/img_t.png{{ id }}" class="float-right mt-4" alt="logo_rappi" style="width: 30%;">
+                </div>
+                <div class="col">
+                    <p class="text-center mt-4 float-left">
+                       TurMe is a collaborative project by <br><a href="https://www.holbertonschool.com/co" target="blank">Holberton School</a> & <a href="https://www.Turme.tech/" target="blank">TurMe</a><br>
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="float-right">
+                        <p>
+                            <h5 class="my-3" id="developed_dy">Developed by</h5>
+                            <a href="https://twitter.com/ccali_k" target="blank">Girum</a><br>
+                            <a href="https://twitter.com/lh1008" target="blank">fkadeal</a><br>
+                            <a href="https://twitter.com/JhonatanLegarda" target="blank">Vencent</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="./static/images/logo_holbeton.png?{{ id }}" class="float-left mt-4 my-3" alt="logo_holberton" style="width: 30%;">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--funciones y animacion js -->
+    <script>
+    /* js para ventana de login */
+    var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
+	    overlay = document.getElementById('overlay'),
+	    popup = document.getElementById('popup'),
+	    btnCerrarPopup = document.getElementById('btn-cerrar-popup');
+
+    btnAbrirPopup.addEventListener('click', function(){
+	    overlay.classList.add('active');
+	    popup.classList.add('active');
+    });
+
+    btnCerrarPopup.addEventListener('click', function(e){
+	    e.preventDefault();
+	    overlay.classList.remove('active');
+	    popup.classList.remove('active');
+    });
+
+
+    /* animaciones */ 
+    window.sr = ScrollReveal();
+    sr.reveal('.navbar', {
+        duration: 2000,
+        origin: 'left',
+        distance: '200px'
+    });
+    
+    window.sr = ScrollReveal();
+    sr.reveal('.header-content-right', {
+        duration: 2000,
+        origin: 'top',
+        distance: '300px'
+    });
+    
+    window.sr = ScrollReveal();
+    sr.reveal('.header-btn', {
+        duration: 2000,
+        origin: 'bottom',
+        delay: 1000
+    });
+    </script>
+
+</body>
+</html>
