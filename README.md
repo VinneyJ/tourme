@@ -41,6 +41,7 @@ this project works was built using ubuntu 19.10 but can be tested using ubuntu 1
 - [python3](https://docs.python-guide.org/starting/install3/linux/)
 - flask ([installation](https://flask.palletsprojects.com/en/1.1.x/installation/#install-flask), no need to install `virtualenv`)
 - [pip3](https://askubuntu.com/questions/778052/installing-pip3-for-python3-on-ubuntu-16-04-lts-using-a-proxy)
+- [flask-login](https://flask-login.readthedocs.io/en/latest/)
 
 #### getting started
 
