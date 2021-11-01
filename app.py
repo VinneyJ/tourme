@@ -1,33 +1,8 @@
 #!/usr/bin/python3
-from flask import Flask, render_template, url_for
-from tourmeApp.db.base_model import User, User_info, Session, engine
-from forms import RegistrationForm, LoginForm
-app = Flask(__name__)
+from web_static import create_app
 
-app.config['SECRET_KEY'] = 'LongAndRandomSecretKey'
-
-local_session = Session(bind=engine)
-
-
-@app.route('/', strict_slashes=False)
-def home():
-    return render_template('home.html', title='home')
-
-
-@app.route("/register/", methods=['GET', 'POST'])
-def register_user():
-    form = RegistrationForm()
-
-    return render_template('register.html', title='Register', form=form)
-
-
-
-@app.route("/login/", methods=['GET', 'POST'])
-def login_user():
-    form = LoginForm()
-
-    return render_template('login.html', title='Login', form=form)
+app = create_app()
 
 if __name__ == "__main__":
     """ Main Function """
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
