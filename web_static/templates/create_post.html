@@ -17,18 +17,5 @@
 
   </form>
 
-  <h1 align="center">Notes</h1>
-  <ul class="list-group list-group-flush" id="notes">
-    {% if user.posts %}
-    {% for post in user.posts.content %}
-    <li class="list-group-item">
-      {{ post }}
-      
-      <!-- <button type="button" class="close" onClick="deleteNote({{ note.id }})">
-        <span aria-hidden="true">&times;</span>
-      </button> -->
-    </li>
-    {% endfor %}
-    {% endif %}
-  </ul>
+
 {% endblock %}

@@ -26,6 +26,6 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(id):
-        return local_session.query(User).filter(User.id == id).first()
+        return local_session.query(User).get({'id': id})
 
     return app

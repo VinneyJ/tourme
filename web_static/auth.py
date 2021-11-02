@@ -21,7 +21,8 @@ def login():
             if check_password_hash(user.password, password):
                 flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
-                return redirect(url_for('views.home'))
+                next_page = request.args.get('next')
+                return redirect(next_page) if next_page else redirect(url_for('views.home'))
             else:
                 flash('Sorry, Incorrect password, Try again!', category='error')
         else:
@@ -71,3 +72,10 @@ def sign_up():
             return redirect(url_for('views.home'))
 
     return render_template("sign_up.html", user=current_user)
+
+
+@auth.route('/account', methods=['GET', 'POST'])
+@login_required
+def account():
+
+    return render_template("account.html", user=current_user)

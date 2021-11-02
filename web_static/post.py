@@ -22,4 +22,10 @@ def create_post():
             local_session.commit()
             flash('Post added successfully!', category='success')
             
-    return render_template("create.html", user=current_user)
+    return render_template("create_post.html", user=current_user)
+
+
+@post.route('/posts')
+
+def show_posts():
+    return render_template("posts.html", user=current_user)
