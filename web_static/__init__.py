@@ -17,7 +17,7 @@ def create_app():
     app.register_blueprint(post, url_prefix='/')
     
 
-    from .models import User, User_info, Session
+    from .db.models import User, User_info, Session
     local_session = Session()
 
     login_manager = LoginManager()
