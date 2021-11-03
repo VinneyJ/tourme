@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Navigation area -->
+    <title>TureMe</title>
+    <link rel="icon" type="image/png" href="../static/images/tourme_logo.png? id }}" />
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <!-- bootstrap style -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- css style -->
+    <link rel="stylesheet" href="../static/styles/main.css?{{ id }}"/>
+</head>
+
+<body>
+    <!-- -->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <div class="container">
+            <img src="../static/images/tourme_logo.png" alt="logo" style="width: 270px;">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="firstNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="firstNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/home">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--  -->
+    <section class="mt-5">
+        <div class="container">  
+        
+            <!-- -->
+            <div class="row">
+
+                <!--  -->
+                <div class="col mt-4 content-right">
+                    <h1 class="text-center">TourMe requist </h1>
+                    <form action="" class="card" method="POST">
+                        <div class="card-body bg-light">
+                            <div class="form group">
+                                <label class="form-control mt-2" for="#">N° TourMe (3456)</label>
+                                <div class="input-group">
+                                    <label class="form-control mt-1 col-md-4">Date Request</label>
+                                    <input type="date" class="form-control mt-1 col-md-8" name="date">
+                                </div>
+                                <select name="type-loan" id="tipo_identificacion" class="form-control mt-2" name="type-loan">
+                                    <option value="">City tour</option>
+                                    <option value="CC">Market Place tour</option>
+                                    <option value="CE">Gallery</option>
+                                    <option value="ce">Daining out</option>
+                                    <option value="CC">Night out</option>
+                                </select>
+                                <input type="text" placeholder="Amount request" class="form-control mt-2" name="amount">
+                                <label class="form-control mt-2" for="#">TourMe_Time</label>
+                                <label class="form-control mt-2" for="#">Rating(70,2%)</label>
+                            </div>
+                        <button type="button" onclick="location.href='/loan-details'" class="btn-light btn-lg btn_css col-md-12 mt-5">NEXT</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- -->
+                <div class="col mt-4 content-right">
+                    <h1 class="text-center">Dash Board</h1>
+
+                    <div class="my-custom-scrollbar1">
+                        <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th class="th-sm" scope="col">N°</th>
+                              <th class="th-sm" scope="col">TourMe rate</th>
+                              <th class="th-sm" scope="col"><label class="c-center">Price</label></th>
+                              <th class="th-sm" scope="col"> <label class="c-center">Session(Hrs)</label></th>
+                              <th class="th-sm" scope="col">Required Ratings</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">1</th>
+                              <td>2.15%</td>
+                              <td>$50.000 - $300.000</td>
+                              <td>1 – 2 hours</td>
+                              <td>60.00%</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">2</th>
+                              <td>2.03%</td>
+                              <td>$301.000 - $600.000</td>
+                              <td>3 – 5 hours</td>
+                              <td>70.00%</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">3</th>
+                              <td>1.91%</td>
+                              <td>$601.000 - $1.000.000</td>
+                              <td>6 – 8 hours</td>
+                              <td>80.00%</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">4</th>
+                              <td>1.82%</td>
+                              <td>$1.001.000 - $1.500.000</td>
+                              <td>9 – 11 hours</td>
+                              <td>90.00%</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">5</th>
+                              <td>1.76%</td>
+                              <td>$1.501.000 - $3.000.000</td>
+                              <td>12 hours</td>
+                              <td>100.00%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div> <!----> --> 
+                <button type="button" onclick="location.href='/profile-worker/{{ person_id }}'" class="btn-light btn-lg btn_css btn-abrir-popup" id="b-cancel">CANCEL</button>
+                </div>
+    
+            </div> <!---->
+
+            <br>
+
+        </div> <!-- -->
+    </section> <!-- -->    
+
+    <br><br>
+
+    <footer> <!--  -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../static/images/img_t.png? id }}" class="float-right mt-4" alt="logo_rappi" style="width: 30%;">
+                </div>
+                <div class="col">
+                    <p class="text-center mt-4 float-left">
+                        TourMe is a collaborative project by <br><a href="https://www.holbertonschool.com/co" target="blank">Holberton School</a> & <a href="" target="blank">TourMe</a><br>
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="float-right">
+                        <p>
+                            <h5 class="my-3" id="developed_dy">Developed by</h5>
+                            <a href="" target="blank">Girum</a><br>
+                            <a href="" target="blank">Fkadeal</a><br>
+                            <a href="" target="blank">Vincent</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="../static/images/logo_holbeton.png?{{ id }}" class="float-left mt-4 my-3" alt="logo_holberton" style="width: 30%;">
+                </div>  
+            </div>
+        </div>
+    </footer>
+    <script>
+    /**/
+    function validar_tipo_id() {
+        var tipo_identificacion = $('#tipo_identificacion').val();
+        if (tipo_identificacion == 0 || tipo_identificacion == "") {
+            alert("obligatorio seleccionar una opciòn");
+            return false
+        }
+        return true
+    }        
+    </script>
+</body>
+</html>

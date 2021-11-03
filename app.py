@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from web_static import create_app
+from web_dynamic import create_app
 
 app = create_app()
 

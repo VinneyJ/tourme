@@ -1,6 +1,6 @@
 # TourMe
 
-![](web_static2/static/images/tourme_logo.png)
+![](web_static/static/images/tourme_logo.png)
 
 This is our Portfolio Project, concluding our Foundations Year at Holberton School
 
