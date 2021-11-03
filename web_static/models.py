@@ -14,7 +14,7 @@ from datetime import datetime
 
 Base = declarative_base()
 
-engine = create_engine('mysql+mysqldb://{0}:{1}@{2}/{3}'.format('vince2', 'Nairobi00!', 'localhost', 'tourme'), echo=True)
+engine = create_engine('mysql+mysqldb://{0}:{1}@{2}/{3}'.format('root', 'brro', 'localhost', 'tourme'), echo=True)
 
 Session =  sessionmaker(bind=engine)
 
@@ -98,3 +98,25 @@ class Post(Base, UserMixin):
 
     def __repr__(self):
         return "<{}, {}, {}>".format(self.content, self.post_created_at, self.post_updated_at)
+
+class Message(Base, UserMixin):
+    __tablename__ = "Message"
+    Message_id = Column(String(60), primary_key=True)
+    Message_text = Column(String(2500), nullable=False)
+    Message_created_at = Column(DateTime(), default=datetime.utcnow)
+    Message_updated_at = Column(DateTime(), default=datetime.utcnow)
+    from_user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
+    to_user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
+
+    def __init__(self, Message_text, from_user_id, to_user_id, Message_id=None):
+
+        if Message_id == None:
+            self.Message_id = str(uuid.uuid4())
+        self.Message_text = Message_text
+        self.from_user_id = from_user_id
+        self.to_user_id = to_user_id
+        self.Message_created_at = datetime.utcnow()
+        self.Message_updated_at = self.post_created_at
+
+    def __repr__(self):
+        return "<{}, {}, {}>".format(self.Message_text, self.Message_created_at, self.Message_updated_at ,self.from_user_id ,self.to_user_id )
