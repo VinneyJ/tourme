@@ -73,5 +73,5 @@ once you have running the code, the site will be connected automatically to the 
 
 ## authors
 * Girum- [github]()   
-* Fkadeal- [github]() 
+* Fkadeal- [github](https://github.com/fkadeal) 
 * Vincent - [Github]() 
