@@ -31,7 +31,7 @@ class User(Base, UserMixin):
     created_at = Column(DateTime(), default=datetime.utcnow)
     updated_at = Column(DateTime(), default=datetime.utcnow)
     user_info = relationship('User_info', backref='user', cascade="all, delete, delete-orphan", uselist=False)
-    post = relationship('Post', backref='user', cascade="all, delete, delete-orphan")
+    posts = relationship('Post', backref='author', cascade="all, delete, delete-orphan")
 
 
     def __init__(self, username, email, password, user_id=None):

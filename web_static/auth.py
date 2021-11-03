@@ -9,7 +9,7 @@ local_session = Session()
 auth = Blueprint('auth', __name__)
 
 
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/auth/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form.get("email")
@@ -21,8 +21,9 @@ def login():
             if check_password_hash(user.password, password):
                 flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
-                next_page = request.args.get('next')
-                return redirect(next_page) if next_page else redirect(url_for('views.home'))
+                # next_page = request.args.get('next')
+                # return redirect(next_page) if next_page else redirect(url_for('views.home'))
+                return redirect(url_for('views.home'))
             else:
                 flash('Sorry, Incorrect password, Try again!', category='error')
         else:
@@ -31,14 +32,14 @@ def login():
     return render_template("login.html", user=current_user)
 
 
-@auth.route('/logout')
+@auth.route('/auth/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
 
-@auth.route('/sign-up', methods=['GET', 'POST'])
+@auth.route('/auth/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
         name1 = request.form.get("firstname")
@@ -79,3 +80,11 @@ def sign_up():
 def account():
 
     return render_template("account.html", user=current_user)
+
+
+
+@auth.route('/register_guide', methods=['GET', 'POST'])
+@login_required
+def register_guide():
+
+    return render_template("guide_info.html", user=current_user)

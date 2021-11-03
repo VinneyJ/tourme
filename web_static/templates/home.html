@@ -5,6 +5,11 @@
 
 {% block content %}
 
-<h2>This is the home page</h2>
+<h2>Tour Guides</h2>
+
+    {% for user in users %}
+        <li>{{user.username}}</li>
+
+    {% endfor %}
 
 {% endblock %}

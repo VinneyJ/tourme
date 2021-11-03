@@ -1,11 +1,19 @@
 from flask import Blueprint, render_template, url_for, request, flash, redirect
 from .models import User, User_info, Post, Session
+from sqlalchemy.orm import Query
 from flask_login import login_required, current_user
 from .views import views
 
 local_session = Session()
 
 post = Blueprint('post', __name__)
+
+@post.route('/posts')
+def show_posts():
+
+    posts = local_session.query(Post).order_by(Post.post_created_at.desc()).all()
+
+    return render_template("posts.html", posts=posts)
 
 
 @post.route('/post', methods=['GET', 'POST'])
@@ -21,11 +29,8 @@ def create_post():
             local_session.add(post)
             local_session.commit()
             flash('Post added successfully!', category='success')
+            return redirect(url_for('post.show_posts'))
             
     return render_template("create_post.html", user=current_user)
 
 
-@post.route('/posts')
-
-def show_posts():
-    return render_template("posts.html", user=current_user)
