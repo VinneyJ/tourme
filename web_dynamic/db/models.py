@@ -7,6 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import backref, sessionmaker, relationship
 from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, create_engine
 from datetime import datetime
+import data
 
 
 
@@ -14,7 +15,7 @@ from datetime import datetime
 
 Base = declarative_base()
 
-engine = create_engine('mysql+mysqldb://{0}:{1}@{2}/{3}'.format('vince2', 'Nairobi00!', 'localhost', 'tourme'), echo=True)
+engine = create_engine('mysql+mysqldb://{0}:{1}@{2}/{3}'.format(data.user, data.password, data.host, data.db_name), echo=True)
 
 Session =  sessionmaker(bind=engine)
 
