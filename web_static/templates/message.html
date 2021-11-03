@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title%} Message's {% endblock %}
+
+{% block content %}
+
+  <h2>{{ user.username }}</h2>messages
+  <form method="POST">
+    <legend aligen="center">send message</legend>
+    <div class="form-group">
+
+        <label for="exampleFormControlFile2">Choose user</label>
+        <select name=users>
+            {% for user in Allusers %}
+                <option value="{{user.id}}" SELECTED>{{user.username}}</option>
+            {% endfor %}     
+        </select>
+
+        <label for="email">type your message</label>
+        <input type="text" class="form-control" id="email" name="MSG_text" placeholder="type your message ">
+
+        </div>
+    <br />
+    <button type="submit" class="btn btn-primary">send</button>
+
+</form>
+
+<h2>{{ user.username }}</h2>
+<strong>YOUr messages</strong> 
+{% for message in messages %}
+<li>{{message.from_user_id}}</li>
+<li>{{message.Message_text}}</li>
+<br>
+{% endfor %}   
+
+{% endblock %}

@@ -116,7 +116,7 @@ class Message(Base, UserMixin):
         self.from_user_id = from_user_id
         self.to_user_id = to_user_id
         self.Message_created_at = datetime.utcnow()
-        self.Message_updated_at = self.post_created_at
+        self.Message_updated_at = self.Message_updated_at
 
     def __repr__(self):
-        return "<{}, {}, {}>".format(self.Message_text, self.Message_created_at, self.Message_updated_at ,self.from_user_id ,self.to_user_id )
+        return "<{}, {}, {}>".format(self.Message_text, self.Message_created_at, self.Message_updated_at ,self.from_user_id, self.to_user_id )
