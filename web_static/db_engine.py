@@ -4,7 +4,7 @@ Create tables
 """
 #import tourmeApp
 if __name__ == '__main__':
-    from models import User, User_info, Base, engine
+    from models import User, User_info, Base, engine,Message
     def create_all_tables():
         Base.metadata.create_all(engine)
 
