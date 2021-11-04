@@ -1,4 +1,6 @@
+from re import U
 from flask import Blueprint, render_template, request, flash, redirect, url_for
+from werkzeug.datastructures import MultiDict
 from .models import User, User_info, Session,Message
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user,login_manager
@@ -84,48 +86,53 @@ def account():
 @auth.route('/Chat', methods=['GET', 'POST'])
 @login_required
 def message():
-    users = local_session.query(User).filter(User.id != current_user.get_id())
-    messages = local_session.query(Message).filter(Message.to_user_id == current_user.get_id())
-    print('fkadealllllllllllllllllllllllllllllllllllllllllllllll')
-    print(users)
-    if request.method == 'POST':
+        users = local_session.query(User).filter(User.id != current_user.get_id())
+        mess = local_session.query(Message).filter(Message.to_user_id == current_user.get_id())
+        print('ssssssssssssssddd') 
+        messages22 = [u.__dict__ for u in mess]
+        print(messages22)
+        print('dddddddfffffffssssssssssssssssssssssddd') 
         
-        MSG_text = request.form.get("MSG_text")
-        msg = Message(Message_text=MSG_text,
-            from_user_id=current_user.get_id(),
-            to_user_id='f9e95108-062b-499f-99dc-906a62f99fab'
-        )
-        local_session.add(msg)
-        local_session.commit()
-        """
-        name1 = request.form.get("MSG_text")
-        email = request.form.get("email")
-        password = request.form.get("password")
-        confirm_password = request.form.get("confirm_password")
-        
-        user = local_session.query(User).filter(User.email == email).first()
-        name = local_session.query(User).filter(User.username == name1).first()
+        print('enddddddddfffffffssssssssssssssssssssssddd') 
+        newmsg={}
+        multimsg=dict()
+        ii = 0
+        for message in messages22:
+            print( 'messaggggggggggggge' )
+            for i ,v in message.items():
+                #print( f">>'{i}' : '{v}' " )
+                if i == 'Message_id':
+                    newmsg[i]=v
+                if i == 'Message_created_at':
+                    newmsg[i]=v
+                if i == 'from_user_id':
+                    userss = local_session.query(User).filter(User.id == v).first()
+                    tousername=userss.username
+                    newmsg[i]=tousername
+                if i == 'Message_text':
+                    newmsg[i]=v
+                if i == 'Message_updated_at':
+                    newmsg[i]=v
+            print(f'loop is on the {newmsg}')
+            multimsg[str(ii)]=newmsg
+            newmsg={}
+            print(f'loop is on the {ii}')
+            print(f'dict is  {multimsg}')
+            ii += 1
 
-        if user:
-            flash('Email already exists!', category='error')
-        elif name:
-            flash('Username has already been taken!', category="error")
-        elif len(email) < 4:
-            flash('Email must be greater the 4 characters.', category='error')
-        # elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
-        #     flash('Invalid email address !', category='error',)
-        elif len(name1) < 2:
-            flash('Your name must be greater than 2 characters.', category='error')
-        elif password != confirm_password:
-            flash('Your passwords did not match!', category='error')
-        elif len(password) < 7:
-            flash('Your password must be greater than 7 characters', category='error')
-        else:
-            user = User(username=name1, email=email, password=generate_password_hash(password, method='sha256'))
-            local_session.add(user)
+                
+
+        print('end---------ddddddddddddddddddddd')   
+        print(multimsg) 
+        print('end---------ddddddddddddddddddddd')   
+        if request.method == 'POST':
+            
+            MSG_text = request.form.get("MSG_text")
+            msg = Message(Message_text=MSG_text,
+                from_user_id=current_user.get_id(),
+                to_user_id=request.form.get("userid")
+            )
+            local_session.add(msg)
             local_session.commit()
-            login_user(user, remember=True)
-            flash('Account created', category='success')
-            return redirect(url_for('views.home')) """
 
-    return render_template("message.html", user=current_user,Allusers=users,messages=messages)
+        return render_template("message.html", user=current_user,Allusers=users,messages=multimsg)

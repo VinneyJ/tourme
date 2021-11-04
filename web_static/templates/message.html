@@ -10,7 +10,7 @@
     <div class="form-group">
 
         <label for="exampleFormControlFile2">Choose user</label>
-        <select name=users>
+        <select name=userid>
             {% for user in Allusers %}
                 <option value="{{user.id}}" SELECTED>{{user.username}}</option>
             {% endfor %}     
@@ -27,10 +27,16 @@
 
 <h2>{{ user.username }}</h2>
 <strong>YOUr messages</strong> 
-{% for message in messages %}
-<li>{{message.from_user_id}}</li>
-<li>{{message.Message_text}}</li>
-<br>
+{% for message in messages.values() %}
+    new mesage
+    {% for msg ,i in message.items()  %}
+    <table class="table">
+        <th>{% if msg == 'from_user_id'%} <li> FROM: {{i}}</li> {% endif%}</th>
+        <tbody>{% if msg == 'Message_text'%} <li> MESSAGE: </br>{{i}}</li> {% endif%}</tbody>
+        <tfoot>{% if msg == 'Message_created_at'%} <li> {{i}}</li> {% endif%}</tfoot>
+    </table>
+        
+    {% endfor %}
 {% endfor %}   
 
 {% endblock %}
