@@ -31,9 +31,11 @@
     new mesage
     {% for msg ,i in message.items()  %}
     <table class="table">
-        <th>{% if msg == 'from_user_id'%} <li> FROM: {{i}}</li> {% endif%}</th>
-        <tbody>{% if msg == 'Message_text'%} <li> MESSAGE: </br>{{i}}</li> {% endif%}</tbody>
-        <tfoot>{% if msg == 'Message_created_at'%} <li> {{i}}</li> {% endif%}</tfoot>
+        <tr>
+        <td>{% if msg == 'from_user_id'%} <li> FROM: {{i}}</li> {% endif%}</td>
+        <td>{% if msg == 'Message_text'%} <li> MESSAGE: </br>{{i}}</li> {% endif%}</td>
+        <td>{% if msg == 'Message_created_at'%} <li> {{i}}</li> {% endif%}</td>
+        </tr>
     </table>
         
     {% endfor %}

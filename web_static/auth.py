@@ -88,12 +88,7 @@ def account():
 def message():
         users = local_session.query(User).filter(User.id != current_user.get_id())
         mess = local_session.query(Message).filter(Message.to_user_id == current_user.get_id())
-        print('ssssssssssssssddd') 
         messages22 = [u.__dict__ for u in mess]
-        print(messages22)
-        print('dddddddfffffffssssssssssssssssssssssddd') 
-        
-        print('enddddddddfffffffssssssssssssssssssssssddd') 
         newmsg={}
         multimsg=dict()
         ii = 0
@@ -113,18 +108,11 @@ def message():
                     newmsg[i]=v
                 if i == 'Message_updated_at':
                     newmsg[i]=v
-            print(f'loop is on the {newmsg}')
+            
             multimsg[str(ii)]=newmsg
             newmsg={}
-            print(f'loop is on the {ii}')
-            print(f'dict is  {multimsg}')
             ii += 1
 
-                
-
-        print('end---------ddddddddddddddddddddd')   
-        print(multimsg) 
-        print('end---------ddddddddddddddddddddd')   
         if request.method == 'POST':
             
             MSG_text = request.form.get("MSG_text")
