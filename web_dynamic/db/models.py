@@ -109,7 +109,6 @@ class Post(Base, UserMixin):
 
     def __repr__(self):
         return "<{}, {}, {}>".format(self.content, self.post_created_at, self.post_updated_at)
-<<<<<<< HEAD:web_static/models.py
 
 class Message(Base, UserMixin):
     __tablename__ = "Message"
@@ -132,5 +131,3 @@ class Message(Base, UserMixin):
 
     def __repr__(self):
         return "<{}, {}, {}>".format(self.Message_text, self.Message_created_at, self.Message_updated_at ,self.from_user_id, self.to_user_id )
-=======
->>>>>>> main:web_dynamic/db/models.py

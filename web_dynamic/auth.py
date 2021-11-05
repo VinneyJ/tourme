@@ -6,7 +6,7 @@ This file handles authentication features
 """
 
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .db.models import User, User_info, Session
+from .db.models import User, User_info, Session,Message
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user,login_manager
 #import re
@@ -34,12 +34,7 @@ def login():
                 flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
                 next_page = request.args.get('next')
-<<<<<<< HEAD:web_static/auth.py
                 return redirect(url_for('views.home'))
-=======
-                return redirect(next_page) if next_page else redirect(url_for('views.home'))
-                # return redirect(url_for('views.home'))
->>>>>>> main:web_dynamic/auth.py
             else:
                 flash('Sorry, Incorrect password, Try again!', category='error')
         else:
@@ -110,7 +105,6 @@ def account():
     return render_template("account.html", user=current_user)
 
 
-<<<<<<< HEAD:web_static/auth.py
 @auth.route('/Chat', methods=['GET', 'POST'])
 @login_required
 def message():
@@ -152,7 +146,6 @@ def message():
             local_session.commit()
 
         return render_template("message.html", user=current_user,Allusers=users,messages=multimsg)
-=======
 
 @auth.route('/register_guide', methods=['GET', 'POST'])
 @login_required
@@ -161,4 +154,3 @@ def register_guide():
     Takes more info about guide registration
     """
     return render_template("guide_info.html", user=current_user)
->>>>>>> main:web_dynamic/auth.py

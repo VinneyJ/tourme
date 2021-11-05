@@ -34,24 +34,6 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-<<<<<<< HEAD:web_static/templates/base.html
-        
-
-        <div class="collapse navbar-collapse" id="navbar">
-          <div class="navbar-nav move">
-            
-            {% if user.is_authenticated %}
-            <!-- <a class="nav-item nav-link newlogo">
-                <div id="logo"></div>
-            </a> -->
-            <a class="nav-item nav-link" id="home" href="/">Home</a>
-            <a class="nav-item nav-link" id="post" href="/post">+Add post</a>
-            <a class="nav-item nav-link" id="post" href="/posts">Posts</a>
-            <a class="nav-item nav-link" id="profile" href="/account">Account</a>
-            <a class="nav-item nav-link" id="profile" href="/Chat">Chat</a>
-            <a class="nav-item nav-link" id="history" href="#">Tour-History</a>
-            <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
-=======
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
             <a class="nav-item nav-link" href="{{ url_for('views.home') }}">Home</a>
@@ -62,9 +44,9 @@
             {% if current_user.is_authenticated %}
               <a class="nav-item nav-link" href="{{ url_for('post.create_post') }}">New Post</a>
               <a class="nav-item nav-link" id="history" href="#">Tour-History</a>
+              <a class="nav-item nav-link" href="{{ url_for('auth.message') }}">Chat</a>
               <a class="nav-item nav-link" href="{{ url_for('auth.account') }}">Account</a>
               <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
->>>>>>> main:web_dynamic/templates/base.html
             {% else %}
               <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Login</a>
               <a class="nav-item nav-link" href="{{ url_for('auth.sign_up') }}">Register</a>
