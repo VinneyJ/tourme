@@ -106,6 +106,6 @@ Once you get the local server running, the site will be connected automatically 
 ## license
 
 ## authors
-* Girum- [Email]()   
-* Fkadeal- [Email]() 
-* Vincent - [Email]() 
+* Girum- [github]()   
+* Fkadeal- [github](https://github.com/fkadeal) 
+* Vincent - [Github]() 

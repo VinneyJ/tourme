@@ -1,12 +1,15 @@
+from flask import Blueprint, render_template, request, flash, redirect, url_for
+from sqlalchemy.sql.expression import desc
+from werkzeug.datastructures import MultiDict
 """
 This file handles authentication features
 """
 
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .db.models import User, User_info, Session
+from .db.models import User, User_info, Session,Message
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user, login_required, logout_user, current_user
-import re
+from flask_login import login_user, login_required, logout_user, current_user,login_manager
+#import re
 
 local_session = Session()
 
@@ -31,8 +34,7 @@ def login():
                 flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
                 next_page = request.args.get('next')
-                return redirect(next_page) if next_page else redirect(url_for('views.home'))
-                # return redirect(url_for('views.home'))
+                return redirect(url_for('views.home'))
             else:
                 flash('Sorry, Incorrect password, Try again!', category='error')
         else:
@@ -103,6 +105,47 @@ def account():
     return render_template("account.html", user=current_user)
 
 
+@auth.route('/Chat', methods=['GET', 'POST'])
+@login_required
+def message():
+        users = local_session.query(User).filter(User.id != current_user.get_id())
+        mess = local_session.query(Message).filter(Message.to_user_id == current_user.get_id()).order_by(desc(Message.Message_updated_at))
+        messages22 = [u.__dict__ for u in mess]
+        newmsg={}
+        multimsg=dict()
+        ii = 0
+        for message in messages22:
+            print( 'messaggggggggggggge' )
+            for i ,v in message.items():
+                #print( f">>'{i}' : '{v}' " )
+                if i == 'Message_id':
+                    newmsg[i]=v
+                if i == 'Message_created_at':
+                    newmsg[i]=v
+                if i == 'from_user_id':
+                    userss = local_session.query(User).filter(User.id == v).first()
+                    tousername=userss.username
+                    newmsg[i]=tousername
+                if i == 'Message_text':
+                    newmsg[i]=v
+                if i == 'Message_updated_at':
+                    newmsg[i]=v
+            
+            multimsg[str(ii)]=newmsg
+            newmsg={}
+            ii += 1
+        print(multimsg)
+        if request.method == 'POST':
+            
+            MSG_text = request.form.get("MSG_text")
+            msg = Message(Message_text=MSG_text,
+                from_user_id=current_user.get_id(),
+                to_user_id=request.form.get("userid")
+            )
+            local_session.add(msg)
+            local_session.commit()
+
+        return render_template("message.html", user=current_user,Allusers=users,messages=multimsg)
 
 @auth.route('/register_guide', methods=['GET', 'POST'])
 @login_required
