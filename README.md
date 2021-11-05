@@ -1,6 +1,6 @@
 # TourMe
 
-![](web_static2/static/images/tourme_logo.png)
+![](web_static/static/images/tourme_logo.png)
 
 This is our Portfolio Project, concluding our Foundations Year at Holberton School
 
@@ -45,22 +45,56 @@ this project works was built using ubuntu 19.10 but can be tested using ubuntu 1
 
 #### getting started
 
-git clone the repository to a local directory
+Git clone <project>
 
-`git clone `
+cd Tourme
 
-`cd TourMe`
-`export /web_static/flask_app=tourme.py`
-`./runtest.sh`
+Activate virtual environment
+
+- pip install Flask
+- pip install SQLAlchemy
+- pip install flask-login
+
+- [Install mysqlclient](https://askubuntu.com/a/1331893)
+
+## Connect to the MySQL database with your dummy credetials
+- [Creating a new MySQL database user](https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql)
+
+
+make all python files executable
+
+## To run the main app:
+```
+chmod u+x app.py
+
+./app.py
+```
 
 in your browser type the following url: http://0.0.0.0:5000/
 
 ---
 
+## To rollback the database:
+```
+chmod u+x rollback_db.py
+
+./db/rollback_db.py
+```
+
+## To reload the database and prepopulate the users table by default:
+```
+./db/db_reload.py
+```
+## To create all the tables for the 1st time:
+```
+./db/db_engine.py
+```
+
+
+
 ### usage
 
-once you have running the code, the site will be connected automatically to the database. two profile options will be displayed. choose `Guid` or `tourist`. fill out the subcription form and `submit`. you will be prompt to the profile site you hace chosen. play around and check the different buttons you have. `Guid` profile cand edit clients details. `log out` and `sign in` using the same credentials you first subscribed with, email and password. 
-
+Once you get the local server running, the site will be connected automatically to the database. On the welcome page you can see the names of the tour guides and posts as well. You can now create an account or log-in if you have already registered. after you log in you can now create posts and access tour-guides, hire a tour-guide message a tour-guide, share your experiences with a blog post. More features to be are progresivley being added.
 ### contributing
 
 ## screenshot

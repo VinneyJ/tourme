@@ -1,8 +1,12 @@
-from re import U
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from sqlalchemy.sql.expression import desc
 from werkzeug.datastructures import MultiDict
-from .models import User, User_info, Session,Message
+"""
+This file handles authentication features
+"""
+
+from flask import Blueprint, render_template, request, flash, redirect, url_for
+from .db.models import User, User_info, Session
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user,login_manager
 #import re
@@ -12,8 +16,13 @@ local_session = Session()
 auth = Blueprint('auth', __name__)
 
 
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/auth/login', methods=['GET', 'POST'])
 def login():
+    
+    """
+    Login user
+    """
+    
     if request.method == 'POST':
         email = request.form.get("email")
         password = request.form.get("password")
@@ -25,7 +34,12 @@ def login():
                 flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
                 next_page = request.args.get('next')
+<<<<<<< HEAD:web_static/auth.py
                 return redirect(url_for('views.home'))
+=======
+                return redirect(next_page) if next_page else redirect(url_for('views.home'))
+                # return redirect(url_for('views.home'))
+>>>>>>> main:web_dynamic/auth.py
             else:
                 flash('Sorry, Incorrect password, Try again!', category='error')
         else:
@@ -34,15 +48,24 @@ def login():
     return render_template("login.html", user=current_user)
 
 
-@auth.route('/logout')
+@auth.route('/auth/logout')
 @login_required
 def logout():
+    
+    """
+    Log out User
+    """
+    
     logout_user()
     return redirect(url_for('auth.login'))
 
 
-@auth.route('/sign-up', methods=['GET', 'POST'])
+@auth.route('/auth/sign-up', methods=['GET', 'POST'])
 def sign_up():
+    """
+    Register a new user
+    """
+    
     if request.method == 'POST':
         name1 = request.form.get("firstname")
         email = request.form.get("email")
@@ -80,10 +103,14 @@ def sign_up():
 @auth.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
+    """
+    View user profile
+    """
 
     return render_template("account.html", user=current_user)
 
 
+<<<<<<< HEAD:web_static/auth.py
 @auth.route('/Chat', methods=['GET', 'POST'])
 @login_required
 def message():
@@ -125,3 +152,13 @@ def message():
             local_session.commit()
 
         return render_template("message.html", user=current_user,Allusers=users,messages=multimsg)
+=======
+
+@auth.route('/register_guide', methods=['GET', 'POST'])
+@login_required
+def register_guide():
+    """
+    Takes more info about guide registration
+    """
+    return render_template("guide_info.html", user=current_user)
+>>>>>>> main:web_dynamic/auth.py

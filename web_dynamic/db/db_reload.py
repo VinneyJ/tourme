@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
 
     def create_dummy_user():
-        user = User(username=name, email=email, password=generate_password_hash(password1, method='sha256'))
+        user = User(username=name, email=email, is_guide=False, password=generate_password_hash(password1, method='sha256'))
         local_session.add(user)
         local_session.commit()
 
