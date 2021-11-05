@@ -83,7 +83,7 @@ def sign_up():
         elif len(password) < 7:
             flash('Your password must be greater than 7 characters', category='error')
         else:
-            user = User(username=name1, email=email, password=generate_password_hash(password, method='sha256'))
+            user = User(username=name1, email=email, is_guide=False, password=generate_password_hash(password, method='sha256'))
             local_session.add(user)
             local_session.commit()
             login_user(user, remember=True)

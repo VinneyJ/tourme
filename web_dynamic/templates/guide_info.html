@@ -5,7 +5,7 @@
 {% block content %}
 
 <form method="POST">
-    <legend align="center">Guide Info</legend>
+    <legend align="center">Guide Registration</legend>
     <div class="form-group">
 
         <label for="firstname">Firstname</label>
@@ -20,10 +20,17 @@
 
         <!--country-->
         <label for="country">Country</label>
-            <select id="country" class='form-control'><option value="">-- Country --</option></select>
+        <select id="country" class='form-control' name="country"><option>-- Country --</option></select>
             
-           <!-- end country row -->
+        <!-- end country row -->
 
+        <!--Region-->
+        <label for="region">Region</label>
+        <select id="region" class='form-control' name="region"><option>-- Region --</option></select>
+        
+        <!--City-->
+        <label for="city">City</label>
+        <select id="city" class='form-control' name="city"><option>-- City --</option></select>
 
         <label for="date_of_birth">Date Of Birth</label>
         <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" placeholder="">

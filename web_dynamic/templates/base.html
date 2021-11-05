@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/jscript.js') }}"></script>
     <link
     rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -20,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/profile.css') }}">
@@ -30,7 +33,9 @@
   <header class="site-header">
     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
       <div class="container">
-        <a class="navbar-brand mr-4" href="/">TourMeTo</a>
+        <a class="navbar-brand mr-4"  href="/">
+        <img id="logo" src="{{ url_for('static', filename='images/tourme_logo.png') }}" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -100,7 +105,7 @@
           <div class="col-md-4">
             <div class="content-section">
               <h3>Do you want a tour?</h3>
-              <p class='text-muted'>You can put any information here you'd like.
+              <p class='text-muted'>You can search any tour guide username you'd like.
                 <ul class="list-group">
                   <li class="list-group-item list-group-item-light">
                     <div class="col-auto">
@@ -158,5 +163,7 @@
     type="text/javascript"
     src="{{ url_for('static', filename='scripts/index.js') }}"
     ></script>
+
+    
 </body>
 </html>

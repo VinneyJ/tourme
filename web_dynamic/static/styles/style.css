@@ -13,6 +13,13 @@ nav {
     color: white;
 }
 
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    grid-gap: 10px;
+}
+
 .row {
     display: -ms-flexbox;
     display: flex;
@@ -22,17 +29,20 @@ nav {
     margin-left: -15px;
     margin-top: 4.5rem;
 }
+img#logo {
+    width: 7rem;
+}
 
 /* .move {
     margin-left: auto;
     color: white;
 } */
 
-div .newlogo #logo {
-    background: url("../images/tourme_logo.png") no-repeat;
+/* #logo {
+    background: url("{{ url_for('static', filename='images/tourme_logo.png') }}") no-repeat;
     left: 20px;
     height: 100%;
-}
+} */
 
 main {
     margin-top: 10px;
