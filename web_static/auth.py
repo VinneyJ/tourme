@@ -1,5 +1,6 @@
 from re import U
 from flask import Blueprint, render_template, request, flash, redirect, url_for
+from sqlalchemy.sql.expression import desc
 from werkzeug.datastructures import MultiDict
 from .models import User, User_info, Session,Message
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -24,7 +25,7 @@ def login():
                 flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
                 next_page = request.args.get('next')
-                return redirect(next_page) if next_page else redirect(url_for('views.home'))
+                return redirect(url_for('views.home'))
             else:
                 flash('Sorry, Incorrect password, Try again!', category='error')
         else:
@@ -87,7 +88,7 @@ def account():
 @login_required
 def message():
         users = local_session.query(User).filter(User.id != current_user.get_id())
-        mess = local_session.query(Message).filter(Message.to_user_id == current_user.get_id())
+        mess = local_session.query(Message).filter(Message.to_user_id == current_user.get_id()).order_by(desc(Message.Message_updated_at))
         messages22 = [u.__dict__ for u in mess]
         newmsg={}
         multimsg=dict()
@@ -112,7 +113,7 @@ def message():
             multimsg[str(ii)]=newmsg
             newmsg={}
             ii += 1
-
+        print(multimsg)
         if request.method == 'POST':
             
             MSG_text = request.form.get("MSG_text")
