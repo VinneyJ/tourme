@@ -6,7 +6,7 @@ if __name__ == '__main__':
     deletes all the tables and creates them again with a dummy data
     """
 
-    from models import User, User_info, Post, Base, Session, engine
+    from models import User, User_info, Post, Message, Base, Session, engine
     from werkzeug.security import generate_password_hash
 
     name = "Vince"
@@ -28,6 +28,7 @@ if __name__ == '__main__':
         Post.__table__.drop(engine)
         User_info.__table__.drop(engine)
         User.__table__.drop(engine)
+        Message.__table__.drop(engine)
         create_all_tables_again()
         create_dummy_user()
 

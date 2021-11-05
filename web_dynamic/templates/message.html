@@ -3,7 +3,8 @@
 {% block title%} Message's {% endblock %}
 {% block msgbox %} 
   <form method="POST">
-    <legend aligen="center">send message</legend>
+    
+    <legend aligen="center">Send message</legend>
     <div class="form-group">
 
         <label for="exampleFormControlFile2">Choose user</label>
@@ -26,17 +27,16 @@
 {% block content %}
   
 <h2>{{ user.username }}</h2>
-<strong>YOUr messages</strong> 
+<strong>Your messages</strong> 
 <table class="table table-hover table-sm">
         
 {% for message in messages.values() %} 
 
     {% for msg ,i in message.items()  %}
-    <tr>
-          {% if msg == 'from_user_id'%}  <th scope="row"> FROM:</th><td> {{i}}</td> {% endif%}
-            {% if msg == 'Message_text'%}<th scope="row">  MESSAGE: </th><td>{{i}}</td> {% endif%}
+        <tr>
+            {% if msg == 'from_user_id'%}  <th scope="row"> FROM:</th><td> {{i}}</td> {% endif%}
             {% if msg == 'Message_created_at'%} <td class="table-dark">Date:</td><td class="table-dark"> {{i}}</td> {% endif%}
-       
+            {% if msg == 'Message_text'%}<th scope="row">  MESSAGE: </th><td>{{i}}</td> {% endif%}
         </tr>
     {% endfor %}
 

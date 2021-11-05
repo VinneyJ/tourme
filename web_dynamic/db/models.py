@@ -19,7 +19,7 @@ from datetime import datetime
 
 Base = declarative_base()
 
-engine = create_engine('mysql+mysqldb://{0}:{1}@{2}/{3}'.format('root', 'brro', 'localhost', 'tourme'), echo=True)
+engine = create_engine('mysql+mysqldb://{0}:{1}@{2}/{3}'.format('vince2', 'Nairobi00!', 'localhost', 'tourme'), echo=True)
 
 Session =  sessionmaker(bind=engine)
 
@@ -68,7 +68,7 @@ class User_info(Base, UserMixin):
     phone_number = Column(Integer(), nullable=False)
     country = Column(String(25), nullable=False)
     city = Column(String(25), nullable=False)
-    date_of_birth = Column(Integer(), nullable=False)
+    date_of_birth = Column(DateTime, nullable=False)
     about = Column(String(250), nullable=False)
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     
@@ -111,7 +111,7 @@ class Post(Base, UserMixin):
         return "<{}, {}, {}>".format(self.content, self.post_created_at, self.post_updated_at)
 
 class Message(Base, UserMixin):
-    __tablename__ = "Message"
+    __tablename__ = "messages"
     Message_id = Column(String(60), primary_key=True)
     Message_text = Column(String(2500), nullable=False)
     Message_created_at = Column(DateTime(), default=datetime.utcnow)
