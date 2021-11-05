@@ -19,7 +19,7 @@ from datetime import datetime
 
 Base = declarative_base()
 
-engine = create_engine('mysql+mysqldb://{0}:{1}@{2}/{3}'.format('vince2', 'Nairobi00!', 'localhost', 'tourme'), echo=True)
+engine = create_engine('mysql+mysqldb://{0}:{1}@{2}/{3}'.format('root', 'brro', 'localhost', 'tourme'), echo=True)
 
 Session =  sessionmaker(bind=engine)
 
