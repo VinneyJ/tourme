@@ -12,10 +12,25 @@ local_session = Session()
 views = Blueprint('views', __name__)
 
 @views.route('/')
-
+@views.route('/home')
 def home():
-    users = local_session.query(User).all()
+    users = local_session.query(User_info).order_by(User_info.guide_created_at.desc()).all()
     return render_template("home.html", users=users)
+
+
+
+@views.route('/profile/<username>')
+@login_required
+def user_profile(username):
+    """
+    view user profile
+    """
+    user = local_session.query(User).filter(User.username == username).first()
+    return render_template("profile.html", user=user)
+
+
+
+
 
 
 

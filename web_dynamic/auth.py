@@ -113,6 +113,22 @@ def register_guide():
     """
 
     if request.method == 'POST':
-        pass
+        firstname = request.form.get('firstname')
+        lastname = request.form.get('second_name')
+        phonenumber = request.form.get('phone_number')
+        country = request.form.get('country')
+        region = request.form.get('region')
+        city = request.form.get('city')
+        dob = request.form.get('date_of_birth')
+        about = request.form.get('about')
+
+        user = local_session.query(User).filter(User.id == current_user.get_id()).first()
+
+
+        add_info = User_info(first_name=firstname, last_name=lastname, phone_number=phonenumber, country=country, city=city, region=region, date_of_birth=dob, about=about, user_id=user.id)
+        local_session.add(add_info)
+        local_session.commit()
+        flash("Congratulations, you are now a guide!", category="success")
+        return redirect(url_for('views.home'))
 
     return render_template("guide_info.html", user=current_user)
