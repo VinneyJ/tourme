@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  app:
+    build: ./app
+    container_name: "tourmeapp"
+    restart: unless-stopped
+    ports:
+      - 5000:5000
+    environment:
+      # MYSQL_ROOT_PASSWORD: root
+      MYSQL_DB_HOST: db
+      MYSQL_DB_NAME: tourme
+      MYSQL_DB_USER: vince2
+      MYSQL_DB_PASSWORD: Nairobi00!
+    volumes:
+      - ./app:/app
+    labels: 
+      project: "tourme_app"
+      day: "8 Nov 2021"
+    links:
+      - db
+    depends_on:
+      # build those images first
+      - db
+
+
+  db:
+    image: mysql:8.0
+    container_name: "mysql_tourme_db"
+    # ports:
+    #   - 3306:3355
+    environment:
+      # MYSQL_ROOT_PASSWORD: root
+      # DB_HOST: mysql
+      MYSQL_ROOT_PASSWORD: Nairobi00!
+      MYSQL_DATABASE: tourme
+      MYSQL_USER: vince2
+      MYSQL_PASSWORD: Nairobi00!
+      
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+    restart: unless-stopped
+    labels: 
+      project: "tourme_db"
+      day: "8 Nov 2021"
+
+volumes:
+  db:
+    driver: local
