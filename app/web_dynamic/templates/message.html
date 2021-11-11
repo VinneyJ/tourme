@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title%} Message's {% endblock %}
+{% block msgbox %} 
+  <form method="POST">
+    
+    <legend aligen="center">Send message</legend>
+    <div class="form-group">
+
+        <label for="exampleFormControlFile2">Choose user</label>
+        <select class="dropdown" name=userid>
+            {% for user in Allusers %}
+                <option value="{{user.id}}" SELECTED>{{user.username}}</option>
+            {% endfor %}     
+        </select>
+
+        <label for="email">type your message</label>
+        <input type="text" class="form-control" id="email" name="MSG_text" placeholder="type your message ">
+
+        </div>
+        
+    <br />
+    <button type="submit" class="btn btn-primary">send</button>
+
+</form>
+{% endblock %}
+{% block content %}
+  
+<h2>{{ user.username }}</h2>
+<strong>Your messages</strong> 
+<table class="table table-hover table-sm">
+        
+{% for message in messages.values() %} 
+
+    {% for msg ,i in message.items()  %}
+        <tr>
+            {% if msg == 'from_user_id'%}  <th scope="row"> FROM:</th><td> {{i}}</td> {% endif%}
+            {% if msg == 'Message_created_at'%} <td class="table-dark">Date:</td><td class="table-dark"> {{i}}</td> {% endif%}
+            {% if msg == 'Message_text'%}<th scope="row">  MESSAGE: </th><td>{{i}}</td> {% endif%}
+        </tr>
+    {% endfor %}
+
+{% endfor %}   
+ 
+    </table>
+{% endblock %}
