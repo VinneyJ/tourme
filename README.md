@@ -42,6 +42,7 @@ this project works was built using ubuntu 19.10 but can be tested using ubuntu 1
 - flask ([installation](https://flask.palletsprojects.com/en/1.1.x/installation/#install-flask), no need to install `virtualenv`)
 - [pip3](https://askubuntu.com/questions/778052/installing-pip3-for-python3-on-ubuntu-16-04-lts-using-a-proxy)
 - [flask-login](https://flask-login.readthedocs.io/en/latest/)
+- [Docker](https://www.docker.com/)
 
 #### getting started
 
@@ -50,6 +51,19 @@ Git clone <project>
 cd Tourme
 
 Activate virtual environment
+  
+- Install docker and docker-compose
+- Run:
+  to start the container services
+  ```
+  docker-compose up --build -d
+  ```
+ - To stop
+  ```
+  docker-compose stop
+  ```
+  
+  OR
 
 - pip install Flask
 - pip install SQLAlchemy
@@ -67,7 +81,7 @@ make all python files executable
 ```
 chmod u+x app.py
 
-./app.py
+./app/app.py
 ```
 
 in your browser type the following url: http://0.0.0.0:5000/
