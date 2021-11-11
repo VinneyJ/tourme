@@ -111,7 +111,7 @@ class User_info(Base, UserMixin):
 class Post(Base, UserMixin):
     __tablename__ = "posts"
     content_id = Column(String(60), primary_key=True)
-    content = Column(String(250), nullable=False)
+    content = Column(String(1000), nullable=False)
     post_created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
     post_updated_at = Column(DateTime(timezone=True), default=datetime.utcnow)
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
